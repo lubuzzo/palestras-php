@@ -1,7 +1,6 @@
 <?php
 
 Auth::routes();
-Route::get('/', 'palestraController@mostrar');
 
 //Login Social
 Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
@@ -9,7 +8,7 @@ Route::get('/callback/{provider}', 'SocialAuthController@callback');
 
 
 //Rotas da aplicação
-Route::get('/palestras', 
+Route::get('/', 
 		['as' => 'listaPalestras',
 		'uses' => 'palestraController@mostrar']
 	);
@@ -25,3 +24,6 @@ Route::get('/interessados/{id}', [
 	);
 
 Route::get('/interesses/{id}', 'interesseController@toggle');
+
+Route::get('/perfil', 'perfilController@mostrarPerfil');
+Route::post('/perfil', 'perfilController@alterarPerfil');

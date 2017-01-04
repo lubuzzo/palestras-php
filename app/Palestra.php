@@ -9,7 +9,7 @@ class Palestra extends Model
 {
 	use SoftDeletes;
 
-    protected $fillable = array('titulo', 'palestrante', 'data', 'descricao');
+    protected $fillable = array('titulo', 'palestrante', 'data', 'descricao', 'limite', 'inscritos');
 
     protected $dates = ['deleted_at'];
 }

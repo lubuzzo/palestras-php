@@ -22,7 +22,23 @@
     <div id="palestra{{ $p->id }}" class="collapse" >
       <div class="card-block">
         {{ $p->descricao }}
-        <br /><br />
+        @if (!(is_null($p->limite)))
+          <br /><br />
+          <p style="color: red">
+            @if (($p->limite - $p->inscritos) > 0)
+              Restam {{$p->limite - $p->inscritos}} vagas
+            @else
+              Não restam vagas
+            @endif
+          </p>
+
+        @else
+          <br /><br />
+        @endif
+
+        @if($p->observacoes)
+          <p style="color: red"><b>Obs: {{ $p->observacoes }}</b></p>
+        @endif
 
         <div class="btn-group btn-group-justified" role="group">              
                 @if(Auth::user() and (Auth::user())->nivel == 1)
@@ -46,9 +62,11 @@
                     <a href="/interesses/{{ $p->id }}"><input type="button" value="Retirar Interesse" class="btn btn-danger btn-lg" /></a>
                   </div>
                 @else
-                  <div class="btn-group" role="group">
-                    <a href="/interesses/{{ $p->id }}"><input type="button" value="Declarar Interesse" class="btn btn-success btn-lg" /></a>
-                  </div>                
+                  @if ( (is_null($p->limite)) or (($p->limite - $p->inscritos) > 0) )
+                    <div class="btn-group" role="group">
+                      <a href="/interesses/{{ $p->id }}"><input type="button" value="Declarar Interesse" class="btn btn-success btn-lg" /></a>
+                    </div>
+                  @endif
                 @endif
               @endif
 

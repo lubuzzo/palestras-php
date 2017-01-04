@@ -14,13 +14,14 @@ class CreateInteressesTable extends Migration
     public function up()
     {
         Schema::create('interesses', function (Blueprint $table) {
-            $table->increments('id');
             $table->unsignedInteger('id_pessoa');
             $table->foreign('id_pessoa')->references('id')->on('users');
             $table->unsignedInteger('id_palestra');
             $table->foreign('id_palestra')->references('id')->on('palestras');
             $table->integer('presenca');
             $table->timestamps();
+            $table->index(['id_pessoa', 'id_palestra']);
+            $table->primary(['id_pessoa', 'id_palestra']);
         });
     }
 

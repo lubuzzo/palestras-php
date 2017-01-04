@@ -19,6 +19,9 @@ class CreatePalestrasTable extends Migration
             $table->string('palestrante');
             $table->dateTime('data');
             $table->string('descricao');
+            $table->integer('limite')->nullable()->default(null);
+            $table->integer('inscritos')->default(0);
+            $table->string('observacoes')->nullable();
             $table->timestamps();
             $table->softDeletes('ativo');
         });

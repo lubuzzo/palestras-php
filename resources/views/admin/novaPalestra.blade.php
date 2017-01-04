@@ -33,6 +33,11 @@
               		<i class="glyphicon glyphicon-calendar"></i>
             		</span>
             		<input type="datetime-local" class="form-control" name="data" id="Data" placeholder="Data" required="">
+
+                <span class="input-group-addon" onclick="document.getElementById('Limite').focus();">
+                  <i class="glyphicon glyphicon-warning-sign"></i>
+                </span>
+                <input type="number" class="form-control" name="limite" id="Limite" placeholder="Vagas" min="0">                
           	</div>
 
           	<div class="input-group input-group-lg" style="margin-bottom: 25px;">

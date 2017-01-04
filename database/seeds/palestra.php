@@ -17,6 +17,8 @@ class palestra extends Seeder
         	'palestrante' => 'Jon Snow',
         	'data' => '2017-01-10 07:31:00',
         	'descricao' => 'Jon Snow ensina como superar, se vingar e dar a volta por cima',
+            'limite' => '0',
+            'inscritos' => '0',
         ));
 
         DB::table('palestras')->insert(array(
@@ -24,6 +26,8 @@ class palestra extends Seeder
             'palestrante' => 'Carinha que mora logo ali',
             'data' => '2017-01-11 07:31:00',
             'descricao' => 'Nesta palestra o carinha que mora logo ali ensina a chamar o método ConhecoMaicao()',
+            'limite' => '20',
+            'inscritos' => '0',
         ));          
     }
 }

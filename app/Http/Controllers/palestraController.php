@@ -26,16 +26,16 @@ class palestraController extends Controller
                     $join->on('i.id_palestra', '=', 'palestras.id');
                     $join->on('i.id_pessoa', '=', DB::raw(auth()->user()->id));
                 }
-                )->select(['palestras.id as id', 'palestras.titulo as titulo', 'palestras.descricao as descricao', 'palestras.palestrante as palestrante', 'i.id_pessoa as id_pessoa'])->get();
+                )->select(['palestras.id as id', 'palestras.limite as limite', 'palestras.inscritos as inscritos', 'palestras.observacoes as observacoes', 'palestras.titulo as titulo', 'palestras.descricao as descricao', 'palestras.palestrante as palestrante', 'i.id_pessoa as id_pessoa'])->get();
     	
     	return view('inicio')->with('palestras', $palestras);
     }
 
     public function cadastrar(Request $request)
     {
-    	palestra::create($request->all());
-    	
-    	return redirect()->route('listaPalestras')->withInput($request->only('titulo'));
+    	palestra::create(array_filter($request->all()));
+    	//return array_filter($request->all());
+        return redirect()->route('listaPalestras')->withInput($request->only('titulo'));
     }
 
     public function remover($id)

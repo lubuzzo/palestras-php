@@ -5,6 +5,7 @@ namespace SeCoT\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use SeCoT\Interesse;
+use SeCoT\Palestra;
 
 class interesseController extends Controller
 {
@@ -24,20 +25,39 @@ class interesseController extends Controller
 
     public function toggle($id)
     {
+
     	$interesses = interesse::where('id_pessoa', '=', auth()->user()->id)
     		->where('id_palestra', '=', $id)
     		->count();
 
-    	if (!($interesses)) interesse::create(
-    		array(
-    			"id_pessoa" => auth()->user()->id,
-    			"id_palestra" => $id,
-    			"presenca" => 0
-    		) 
-    	);
+        if (!($interesses)) {
+            $check = palestra::find($id)->get(['limite', 'inscritos']);
+            $check = (json_decode($check[1]));
+            if (($check->limite - $check->inscritos) > 0) {
+                interesse::create(
+            		array(
+            			"id_pessoa" => auth()->user()->id,
+            			"id_palestra" => $id,
+            			"presenca" => 0
+            		) 
+            	);
+                
+                $Palestra = palestra::find($id);
+                $Palestra->inscritos++;
+                $Palestra->save();
+            }
+        }
 
-    	else interesse::where('id_pessoa', '=', auth()->user()->id)
-    	 ->where('id_palestra', '=', $id)->delete();
-    	return redirect()->route('listaPalestras');
+    	else {
+            interesse::where('id_pessoa', '=', auth()->user()->id)
+    	       ->where('id_palestra', '=', $id)->delete();
+
+            $Palestra = palestra::find($id);
+            $Palestra->inscritos--;
+            $Palestra->save();               
+    	
+        }
+
+        return redirect()->route('listaPalestras');
     }
 }

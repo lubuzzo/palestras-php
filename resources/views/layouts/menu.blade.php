@@ -20,8 +20,8 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li @if(Request::url() == "http://localhost:8000") class="active" @endif><a href="#">Palestras</a></li>
-                <li><a href="#">Perfil</a></li>
+                <li @if(Request::url() == "http://localhost:8000") class="active" @endif><a href="/">Palestras</a></li>
+                <li @if(Request::url() == "http://localhost:8000/perfil") class="active" @endif><a href="/perfil">Perfil</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

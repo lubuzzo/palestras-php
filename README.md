@@ -1,8 +1,8 @@
-Sistema para cadastro e controle de usuários e palestras.
+# Sistema para cadastro e controle de usuários e palestras.
 
-Usado durante a SeCoT - Semana de Computação e Tecnologia que ocorre na UFSCar Campus Sorocaba.
+Usado durante a **SeCoT** - Semana de Computação e Tecnologia que ocorre na **UFSCar Campus Sorocaba**.
 
-O desenvolvimento deste foi feito em PHP, utilizando o Laravel como framework.
+O desenvolvimento deste foi feito em **PHP**, utilizando o **Laravel** como framework.
 
 Conta com as operações básicas de cadastro, listagem e remoção de usuários e palestras. Esta versão também conta com o login social via Facebook, Google e GitHub.
 
