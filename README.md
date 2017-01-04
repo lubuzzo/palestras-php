@@ -9,7 +9,4 @@ Conta com as operações básicas de cadastro, listagem e remoção de usuários
 
 
 TODO:
-* Permitir o limite de pessoas inscritas nas palestras (qtde. máxima);
-* Criar o perfil;
-* Integrar com a geração do QR Code;
 * Modificações visuais na tela inicial (tornar visível a data e horário das palestras)
