@@ -10,3 +10,4 @@ Conta com as operações básicas de cadastro, listagem e remoção de usuários
 
 TODO:
 * Modificações visuais na tela inicial (tornar visível a data e horário das palestras)
+* Enviar o QR Code via e-mail
