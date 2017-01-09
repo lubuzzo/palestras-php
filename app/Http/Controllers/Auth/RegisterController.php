@@ -6,6 +6,8 @@ use SeCoT\User;
 use SeCoT\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use SeCoT\Mail\Cadastro;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -62,11 +64,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $QR_Code = str_random(12);
+
+        Mail::to($data['email'])->send(new Cadastro($data['name'], $QR_Code));
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'id_qr' => str_random(12),
+            'id_qr' => $QR_Code,
             'nivel' => 0,
         ]);
     }

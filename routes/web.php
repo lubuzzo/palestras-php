@@ -8,7 +8,7 @@ Route::get('/callback/{provider}', 'SocialAuthController@callback');
 
 
 //Rotas da aplicação
-Route::get('/', 
+Route::get('/',
 		['as' => 'listaPalestras',
 		'uses' => 'palestraController@mostrar']
 	);
@@ -27,3 +27,4 @@ Route::get('/interesses/{id}', 'interesseController@toggle');
 
 Route::get('/perfil', 'perfilController@mostrarPerfil');
 Route::post('/perfil', 'perfilController@alterarPerfil');
+Route::get('/perfil/email', 'perfilController@enviarEmail');
