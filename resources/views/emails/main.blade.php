@@ -12,8 +12,8 @@
             <td class="navbar navbar-inverse" align="center">
                 <table width="650px" cellspacing="0" cellpadding="3" class="container">
                     <tr class="navbar navbar-inverse">
-                        <td colspan="4"><a class="brand" href="http://secot.com.br/">SeCoT</a></td>
-                        <td><ul class="nav pull-right"><li><a href="http://secot.com.br/login">Entrar</a></li></ul></td>
+                        <td colspan="4"><a class="brand" href="https://secot.com.br/">SeCoT</a></td>
+                        <td><ul class="nav pull-right"><li><a href="https://inscricao.secot.com.br/login">Entrar</a></li></ul></td>
                     </tr>
                 </table>
             </td>

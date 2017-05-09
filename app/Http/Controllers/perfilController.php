@@ -36,7 +36,7 @@ class perfilController extends Controller
 
     public function enviarEmail()
     {
-        $Teste = Mail::to(auth()->user()->email)->send(new Cadastro(auth()->user()->name, auth()->user()->id_qr));
+        $Teste = Mail::to(auth()->user()->email)->send(new Cadastro(auth()->user()->name, auth()->user()->id_qr))->from('inscricao@secot.com.br', 'SeCoT');
         return view('perfil');
     }
 }

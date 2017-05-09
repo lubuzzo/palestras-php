@@ -11,11 +11,11 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                SeCoT
+            <a class="navbar-brand" href="{{ url('/') }}" style="padding: 5px;">
+                <img src='img/logoRed.png' width="42px" style="margin-top: 0px; padding-top: 0px;"/>
             </a>
         </div>
-   
+
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->

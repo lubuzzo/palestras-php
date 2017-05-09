@@ -20,14 +20,14 @@ class palestraController extends Controller
     {
     	if (Auth::user()->nivel == 1)
             $palestras = palestra::withTrashed()->get();
-        else 
+        else
             $palestras = palestra::leftJoin('interesses as i',
                 function($join) {
                     $join->on('i.id_palestra', '=', 'palestras.id');
                     $join->on('i.id_pessoa', '=', DB::raw(auth()->user()->id));
                 }
-                )->select(['palestras.id as id', 'palestras.limite as limite', 'palestras.inscritos as inscritos', 'palestras.observacoes as observacoes', 'palestras.titulo as titulo', 'palestras.descricao as descricao', 'palestras.palestrante as palestrante', 'i.id_pessoa as id_pessoa'])->get();
-    	
+                )->select(['palestras.id as id', 'palestras.limite as limite', 'palestras.inscritos as inscritos', 'palestras.observacoes as observacoes', 'palestras.titulo as titulo', 'palestras.descricao as descricao', 'palestras.palestrante as palestrante', 'i.id_pessoa as id_pessoa', 'palestras.data as data'])->get();
+
     	return view('inicio')->with('palestras', $palestras);
     }
 
