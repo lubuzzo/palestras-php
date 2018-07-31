@@ -2,7 +2,7 @@
     "name": "lubuzzo/palestras",
     "description": "Sistema para cadastro e controle de usuários e palestras.",
     "keywords": ["laravel", "php", "palestras", "ufscar", "secot"],
-    "license": "GNU v3",
+    "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
