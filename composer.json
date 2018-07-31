@@ -1,7 +1,7 @@
 {
-    "name": "odev/palestras",
+    "name": "lubuzzo/palestras",
     "description": "Sistema para cadastro e controle de usuários e palestras.",
-    "keywords": ["Lucas Buzzo", "laravel", "php", "palestras", "ufscar", "secot"],
+    "keywords": ["laravel", "php", "palestras", "ufscar", "secot"],
     "license": "GNU v3",
     "type": "project",
     "require": {
